@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">CivicWatch</string>
+
+    <!-- Navigation -->
+    <string name="map">Map</string>
+    <string name="reported_issues">Reported Issues</string>
+    <string name="about_us">About Us</string>
+    <string name="contact">Contact</string>
+
+    <!-- Report Issue -->
+    <string name="report_new_issue">Report new issue</string>
+    <string name="issue_title">Title</string>
+    <string name="issue_description">Description</string>
+    <string name="issue_type">Issue type</string>
+    <string name="issue_severity">Severity</string>
+    <string name="add_location">Add location</string>
+    <string name="place_location">Click to place location on map</string>
+
+    <!-- About Us -->
+    <string name="about_us_text">CivicWatch is an app that allows users to report all kinds of community issues, from litter to graffiti and potholes. The app helps keep our neighborhoods clean and safe.</string>
+    <string name="contact_us">CONTACT US</string>
+    <string name="contact_info1">For any questions or support, please contact us at:</string>
+    <string name="author_name">Abbey Musumba</string>
+    <string name="author_email">ssenkubugeabbey055@gmail.com</string>
+    <string name="city">Mbarara City</string>
+
+    <!-- Issue Types -->
+    <string-array name="types">
+        <item>Litter</item>
+        <item>Illegal dumping</item>
+        <item>Graffiti</item>
+        <item>Pothole</item>
+        <item>Roadworks</item>
+        <item>Worn out street sign</item>
+        <item>Street lighting</item>
+        <item>Illegal parking</item>
+        <item>Abandoned vehicle</item>
+        <item>Damaged tree</item>
+        <item>Hanging branches</item>
+        <item>Fallen tree</item>
+        <item>Other</item>
+    </string-array>
+
+    <!-- Severity Levels -->
+    <string-array name="severity">
+        <item>Minor</item>
+        <item>Moderate</item>
+        <item>Major</item>
+        <item>Critical</item>
+    </string-array>
+
+</resources>
