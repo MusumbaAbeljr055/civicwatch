@@ -1,8 +1,10 @@
 # CivicWatch - Community Issue Reporting Platform 🏘️
 
-CivicWatch is an Android application that empowers citizens to report, track, and resolve community issues in real-time. From potholes to illegal dumping, CivicWatch makes civic engagement simple and effective.
-
 <div align="center">
+
+![CivicWatch Logo](docs/images/ic_civicwatch.png)
+
+*Empowering Communities Through Technology*
 
 [![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://java.com)
@@ -18,10 +20,10 @@ CivicWatch is an Android application that empowers citizens to report, track, an
 
 <div align="center">
 
-| Issues Map | Report New Issue | Reported Issues | About Us |
+| **Issues Map** | **Report New Issue** | **Reported Issues** | **About Us** |
 |:---:|:---:|:---:|:---:|
-| ![Issues Map](app/src/main/res/drawable/IssuesMap.jpeg) | ![Report New Issue](app/src/main/res/drawable/ReportNewIssue.jpeg) | ![Reported Issues](app/src/main/res/drawable/ReportedIssues.jpeg) | ![About Us](app/src/main/res/drawable/AboutUs.jpeg) |
-| **Interactive Map** - View all reported issues on Google Maps | **Report Issues** - Submit new issues with photos and details | **Issues Dashboard** - Browse and upvote community issues | **About CivicWatch** - Learn about the app |
+| ![Issues Map](docs/images/IssuesMap.jpeg) | ![Report New Issue](docs/images/ReportNewIssue.jpeg) | ![Reported Issues](docs/images/ReportedIssues.jpeg) | ![About Us](docs/images/AboutUs.jpeg) |
+| Interactive map showing all reported issues | Report new issues with photos and location | Browse and upvote community issues | Learn about CivicWatch mission |
 
 </div>
 
