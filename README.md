@@ -1,10 +1,10 @@
 # CivicWatch - Community Issue Reporting Platform 🏘️
 
-CivicWatch is an Android application that empowers citizens to report, track, and resolve community issues in real-time. From potholes to illegal dumping, CivicWatch makes civic engagement simple and effective.
-
 <div align="center">
 
-![CivicWatch Banner](https://via.placeholder.com/800x200/0088cc/ffffff?text=CivicWatch+Community+Monitoring)
+![CivicWatch Logo](docs/images/ic_civicwatch.png)
+
+*Empowering Communities Through Technology*
 
 [![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://java.com)
@@ -20,10 +20,10 @@ CivicWatch is an Android application that empowers citizens to report, track, an
 
 <div align="center">
 
-| Issues Map | Report New Issue | Reported Issues | About Us |
+| **Issues Map** | **Report New Issue** | **Reported Issues** | **About Us** |
 |:---:|:---:|:---:|:---:|
-| <img src="https://via.placeholder.com/250x500/4CAF50/ffffff?text=Issues+Map" width="200"> | <img src="https://via.placeholder.com/250x500/2196F3/ffffff?text=Report+Issue" width="200"> | <img src="https://via.placeholder.com/250x500/FF9800/ffffff?text=Issues+List" width="200"> | <img src="https://via.placeholder.com/250x500/9C27B0/ffffff?text=About+Us" width="200"> |
-| **Interactive Map View**<br>View issues on Google Maps | **Issue Reporting**<br>Submit new issues with photos | **Community Dashboard**<br>Browse and upvote issues | **About App**<br>Learn about CivicWatch |
+| ![Issues Map](docs/images/IssuesMap.jpeg) | ![Report New Issue](docs/images/ReportNewIssue.jpeg) | ![Reported Issues](docs/images/ReportedIssues.jpeg) | ![About Us](docs/images/AboutUs.jpeg) |
+| Interactive map showing all reported issues | Report new issues with photos and location | Browse and upvote community issues | Learn about CivicWatch mission |
 
 </div>
 
@@ -99,18 +99,18 @@ CivicWatch bridges the gap between citizens and local authorities by providing a
 
 ## 📋 Issue Categories
 
-| Category | Description | Typical Issues |
-|----------|-------------|----------------|
-| **Pothole** | Road surface damage | Deep potholes, road cracks, uneven surfaces |
-| **Graffiti** | Vandalism and unauthorized art | Spray paint, markers, unauthorized murals |
-| **Litter** | Waste management issues | Trash accumulation, overflowing bins, illegal dumping |
-| **Illegal Parking** | Vehicles in prohibited areas | No-parking zones, fire hydrant blocking, sidewalk parking |
-| **Roadworks** | Construction and repairs | Unmarked construction, debris, safety hazards |
-| **Street Lighting** | Lighting problems | Broken lights, insufficient lighting, flickering lights |
-| **Illegal Dumping** | Large-scale waste disposal | Furniture, appliances, construction waste |
-| **Abandoned Vehicle** | Vehicles left unattended | Cars, motorcycles, trailers left for weeks |
-| **Tree Issues** | Problems with greenery | Fallen branches, damaged trees, overgrown vegetation |
-| **Street Signs** | Signage problems | Missing signs, damaged signs, illegible signs |
+| Category | Icon | Description |
+|----------|------|-------------|
+| **Pothole** | 🚧 | Road damage, potholes, road surface issues |
+| **Graffiti** | 🎨 | Vandalism, unauthorized graffiti |
+| **Litter** | 🗑️ | Trash accumulation, waste management issues |
+| **Illegal Parking** | 🚗 | Vehicles parked in prohibited areas |
+| **Street Lighting** | 💡 | Broken street lights, lighting issues |
+| **Tree Issues** | 🌳 | Damaged trees, fallen branches, greenery |
+| **Roadworks** | 🚧 | Ongoing or needed road repairs |
+| **Illegal Dumping** | 🚛 | Illegal waste disposal sites |
+| **Abandoned Vehicle** | 🚘 | Abandoned cars, vehicles left unattended |
+| **Street Signs** | 🪧 | Broken or missing street signs |
 
 ## 🛠️ Installation & Setup
 
