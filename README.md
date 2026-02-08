@@ -4,7 +4,7 @@ CivicWatch is an Android application that empowers citizens to report, track, an
 
 <div align="center">
 
-![CivicWatch Banner](docs/images/banner.jpg)
+![CivicWatch Banner](https://via.placeholder.com/800x200/0088cc/ffffff?text=CivicWatch+Community+Monitoring)
 
 [![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://java.com)
@@ -22,7 +22,7 @@ CivicWatch is an Android application that empowers citizens to report, track, an
 
 | Issues Map | Report New Issue | Reported Issues | About Us |
 |:---:|:---:|:---:|:---:|
-| <img src="docs/images/IssuesMap.jpg" width="200" alt="Issues Map"> | <img src="docs/images/ReportNewIssue.jpg" width="200" alt="Report New Issue"> | <img src="docs/images/ReportedIssues.jpg" width="200" alt="Reported Issues"> | <img src="docs/images/AboutUs.jpg" width="200" alt="About Us"> |
+| ![Issues Map](docs/images/IssuesMap.jpeg) | ![Report Issue](docs/images/ReportNewIssue.jpeg) | ![Issues List](docs/images/ReportedIssues.jpeg) | ![About Us](docs/images/AboutUs.jpeg) |
 | **Interactive Map View** | **Issue Reporting Screen** | **Community Issues Dashboard** | **About CivicWatch** |
 
 </div>
@@ -97,4 +97,31 @@ CivicWatch bridges the gap between citizens and local authorities by providing a
 - **Observer Pattern**: Firebase listeners for real-time updates
 - **Singleton Pattern**: Utility classes and helpers
 
-## 📁 Project Structure
+## 📋 Issue Categories
+
+| Category | Description | Typical Issues |
+|----------|-------------|----------------|
+| **Pothole** | Road surface damage | Deep potholes, road cracks, uneven surfaces |
+| **Graffiti** | Vandalism and unauthorized art | Spray paint, markers, unauthorized murals |
+| **Litter** | Waste management issues | Trash accumulation, overflowing bins, illegal dumping |
+| **Illegal Parking** | Vehicles in prohibited areas | No-parking zones, fire hydrant blocking, sidewalk parking |
+| **Roadworks** | Construction and repairs | Unmarked construction, debris, safety hazards |
+| **Street Lighting** | Lighting problems | Broken lights, insufficient lighting, flickering lights |
+| **Illegal Dumping** | Large-scale waste disposal | Furniture, appliances, construction waste |
+| **Abandoned Vehicle** | Vehicles left unattended | Cars, motorcycles, trailers left for weeks |
+| **Tree Issues** | Problems with greenery | Fallen branches, damaged trees, overgrown vegetation |
+| **Street Signs** | Signage problems | Missing signs, damaged signs, illegible signs |
+
+## 🛠️ Installation & Setup
+
+### Prerequisites
+- **Android Studio** (Latest version recommended)
+- **Android SDK** 21+ (Android 5.0 Lollipop minimum)
+- **Java JDK** 8 or higher
+- **Google Maps API Key**
+- **Firebase Account**
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/MusumbaAbeljr055/civicwatch.git
+cd civicwatch
