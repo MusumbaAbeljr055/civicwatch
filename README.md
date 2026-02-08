@@ -22,7 +22,7 @@ CivicWatch is an Android application that empowers citizens to report, track, an
 
 | Issues Map | Report New Issue | Reported Issues | About Us |
 |:---:|:---:|:---:|:---:|
-| ![Issues Map](docs/images/IssuesMap.jpeg) | ![Report Issue](docs/images/ReportNewIssue.jpeg) | ![Issues List](docs/images/ReportedIssues.jpeg) | ![About Us](docs/images/AboutUs.jpeg) |
+| ![Issues Map](https://via.placeholder.com/250x500/4CAF50/ffffff?text=Issues+Map) | ![Report Issue](https://via.placeholder.com/250x500/2196F3/ffffff?text=Report+Issue) | ![Issues List](https://via.placeholder.com/250x500/FF9800/ffffff?text=Issues+List) | ![About Us](https://via.placeholder.com/250x500/9C27B0/ffffff?text=About+Us) |
 | **Interactive Map View** | **Issue Reporting Screen** | **Community Issues Dashboard** | **About CivicWatch** |
 
 </div>
