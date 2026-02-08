@@ -4,94 +4,97 @@ CivicWatch is an Android application that empowers citizens to report, track, an
 
 <div align="center">
 
-![CivicWatch Logo](https://via.placeholder.com/800x200/0088cc/ffffff?text=CivicWatch+Community+Monitoring)
+![CivicWatch Banner](docs/images/banner.jpg)
 
 [![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://java.com)
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
 [![Google Maps](https://img.shields.io/badge/Google%20Maps-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white)](https://developers.google.com/maps)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/MusumbaAbeljr055/civicwatch?style=for-the-badge)](https://github.com/MusumbaAbeljr055/civicwatch/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/MusumbaAbeljr055/civicwatch?style=for-the-badge)](https://github.com/MusumbaAbeljr055/civicwatch/network)
 
 </div>
 
 ## 📸 App Screenshots
 
+<div align="center">
+
 | Issues Map | Report New Issue | Reported Issues | About Us |
 |:---:|:---:|:---:|:---:|
-| ![IssuesMap](https://via.placeholder.com/250x500/4CAF50/ffffff?text=Issues+Map) | ![ReportNewIssue](https://via.placeholder.com/250x500/2196F3/ffffff?text=Report+Issue) | ![ReportedIssues](https://via.placeholder.com/250x500/FF9800/ffffff?text=Issues+List) | ![AboutUs](https://via.placeholder.com/250x500/9C27B0/ffffff?text=About+Us) |
-| **Interactive Map** - View all reported issues on an interactive Google Map with custom markers | **Report Issues** - Submit new issues with photos, location, and detailed descriptions | **Issues Dashboard** - Browse, filter, and upvote community-reported issues | **About CivicWatch** - Learn about the app and its mission |
+| <img src="docs/images/IssuesMap.jpg" width="200" alt="Issues Map"> | <img src="docs/images/ReportNewIssue.jpg" width="200" alt="Report New Issue"> | <img src="docs/images/ReportedIssues.jpg" width="200" alt="Reported Issues"> | <img src="docs/images/AboutUs.jpg" width="200" alt="About Us"> |
+| **Interactive Map View** | **Issue Reporting Screen** | **Community Issues Dashboard** | **About CivicWatch** |
 
-## 🚀 Key Features
+</div>
 
-### 🗺️ **Real-time Issue Mapping**
-- Interactive Google Maps integration
-- Custom markers for different issue types (Pothole, Graffiti, Litter, etc.)
-- Tap-to-select location for reporting
-- Real-time marker updates via Firebase
+## 🎯 Why CivicWatch?
 
-### 📝 **Smart Issue Reporting**
-- Photo capture with camera or gallery integration
-- 10+ categorized issue types
-- Severity level selection (Minor, Moderate, Major, Critical)
-- Detailed description field
-- Automatic GPS location detection
+CivicWatch bridges the gap between citizens and local authorities by providing a modern, user-friendly platform for reporting civic issues. No more lengthy phone calls or complicated forms – report issues with just a few taps!
+
+### 🏆 Key Benefits
+- **Real-time issue tracking** for the entire community
+- **Transparent process** with status updates
+- **Community voting** to prioritize important issues
+- **Photo evidence** for better issue documentation
+- **Location-based reporting** for accurate problem identification
+
+## 🚀 Features
+
+### 🗺️ **Interactive Mapping**
+- Google Maps integration with custom markers
+- Real-time issue visualization
+- Tap-to-select location for precise reporting
+- Different marker icons for each issue category
+- Cluster markers for better visualization in dense areas
+
+### 📝 **Smart Reporting System**
+- **Multiple Issue Categories**: Potholes, Graffiti, Litter, Illegal Parking, Street Lighting, and more
+- **Photo Evidence**: Capture or upload photos directly from the app
+- **Severity Levels**: Classify issues as Minor, Moderate, Major, or Critical
+- **Detailed Descriptions**: Provide comprehensive information about the issue
+- **Automatic Location Detection**: Uses GPS to pinpoint exact locations
 
 ### 📊 **Community Dashboard**
-- Browse all reported issues with cards
-- Filter by status (Pending, In Progress, Resolved)
-- Sort by date (newest first)
-- Upvote system for community prioritization
-- Visual status indicators with color coding
+- **Browse All Issues**: View all community-reported problems
+- **Filter & Sort**: Filter by status, sort by date or upvotes
+- **Upvote System**: Vote on issues that need immediate attention
+- **Status Tracking**: Monitor issue progress (Pending → In Progress → Resolved)
+- **Visual Indicators**: Color-coded status badges for quick identification
 
 ### 🔄 **Real-time Synchronization**
-- Firebase Realtime Database integration
-- Instant issue updates across all users
-- Live upvote counting
-- No refresh needed - updates appear automatically
+- **Firebase Integration**: All data syncs instantly across devices
+- **Live Updates**: See new issues appear in real-time
+- **Upvote Counting**: Watch upvote numbers change as community votes
+- **Status Changes**: Get notified when authorities update issue status
+
+### 🎨 **Modern UI/UX**
+- **Material Design**: Clean, intuitive interface following Google's design guidelines
+- **Responsive Layout**: Works on all screen sizes from phones to tablets
+- **Smooth Animations**: Pleasing transitions and feedback
+- **Dark Mode Support**: Easy on the eyes with dark theme option
 
 ## 🏗️ Technology Stack
 
-**Frontend:**
-- Android SDK with Java
-- Material Design Components
-- Google Maps Android API
-- View Binding
-- RecyclerView with custom adapters
+### Frontend
+- **Language**: Java
+- **Framework**: Android SDK
+- **UI Components**: Material Design Components
+- **Maps**: Google Maps Android API
+- **Image Processing**: Bitmap manipulation and Base64 encoding
+- **Permissions**: Runtime permissions for camera, location, and storage
 
-**Backend Services:**
-- Firebase Realtime Database
-- Google Maps Platform
-- Location Services API
+### Backend & Services
+- **Database**: Firebase Realtime Database
+- **Authentication**: Firebase Authentication (ready for future implementation)
+- **Storage**: Firebase Storage (for image uploads)
+- **Maps API**: Google Maps Platform
+- **Location Services**: FusedLocationProviderClient
 
-**Architecture:**
-- Model-View-Presenter pattern
-- Repository pattern for data management
-- Firebase listeners for real-time updates
+### Architecture & Patterns
+- **MVP Pattern**: Model-View-Presenter architecture
+- **Repository Pattern**: Clean data layer abstraction
+- **Adapter Pattern**: RecyclerView adapters for efficient list rendering
+- **Observer Pattern**: Firebase listeners for real-time updates
+- **Singleton Pattern**: Utility classes and helpers
 
-## 📋 Supported Issue Categories
-
-| Category | Color | Description |
-|----------|-------|-------------|
-| **Pothole** | 🚧 | Road damage, potholes, road surface issues |
-| **Graffiti** | 🎨 | Vandalism, unauthorized graffiti |
-| **Litter** | 🗑️ | Trash accumulation, waste management issues |
-| **Illegal parking** | 🚗 | Vehicles parked in prohibited areas |
-| **Roadworks** | 🚧 | Ongoing or needed road repairs |
-| **Street lighting** | 💡 | Broken street lights, lighting issues |
-| **Illegal dumping** | 🚛 | Illegal waste disposal sites |
-| **Abandoned vehicle** | 🚘 | Abandoned cars, vehicles left unattended |
-| **Tree issues** | 🌳 | Damaged trees, fallen branches, greenery |
-| **Street signs** | 🪧 | Broken or missing street signs |
-
-## 🛠️ Installation & Setup
-
-### Prerequisites
-- Android Studio (Latest Version)
-- Android SDK 21+ (Android 5.0 Lollipop)
-- Google Maps API Key
-- Firebase Account
-
-### Step 1: Clone the Repository
-```bash
-git clone https://github.com/MusumbaAbeljr055/civicwatch.git
-cd civicwatch
+## 📁 Project Structure
