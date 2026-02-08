@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![CivicWatch Logo](docs/images/ic_civicwatch.png)
+<img src="docs/images/ic_civicwatch.png" width="200" alt="CivicWatch Logo">
 
 *Empowering Communities Through Technology*
 
