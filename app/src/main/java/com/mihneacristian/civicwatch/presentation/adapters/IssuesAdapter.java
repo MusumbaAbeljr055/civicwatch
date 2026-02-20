@@ -1,13 +1,16 @@
 package com.mihneacristian.civicwatch.presentation.adapters;
 
-import android.graphics.Color;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.format.DateUtils;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mihneacristian.civicwatch.R;
 import com.mihneacristian.civicwatch.data.model.Issue;
 import com.mihneacristian.civicwatch.databinding.ItemIssueBinding;
+import com.mihneacristian.civicwatch.presentation.activities.ImageGalleryActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,10 +32,10 @@ public class IssuesAdapter extends RecyclerView.Adapter<IssuesAdapter.IssueViewH
 
     private List<Issue> issues = new ArrayList<>();
     private OnIssueClickListener listener;
+    private static final String TAG = "IssuesAdapter";
 
     public interface OnIssueClickListener {
         void onIssueClick(Issue issue);
-        void onIssueMenuClick(Issue issue, View view);
         void onUpvoteClick(Issue issue);
     }
 
@@ -68,16 +72,21 @@ public class IssuesAdapter extends RecyclerView.Adapter<IssuesAdapter.IssueViewH
 
     class IssueViewHolder extends RecyclerView.ViewHolder {
         private final ItemIssueBinding binding;
-        private Issue currentIssue; // Store current issue to avoid position issues
+        private Issue currentIssue;
 
         IssueViewHolder(ItemIssueBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
 
-            // Set click listeners
             itemView.setOnClickListener(v -> {
                 if (currentIssue != null && listener != null) {
                     listener.onIssueClick(currentIssue);
+                }
+            });
+
+            binding.btnUpvote.setOnClickListener(v -> {
+                if (currentIssue != null && listener != null) {
+                    listener.onUpvoteClick(currentIssue);
                 }
             });
 
@@ -86,135 +95,141 @@ public class IssuesAdapter extends RecyclerView.Adapter<IssuesAdapter.IssueViewH
                     showPopupMenu(v, currentIssue);
                 }
             });
+
+            // Add click listener to the image to open gallery
+            binding.issueImage.setOnClickListener(v -> {
+                if (currentIssue != null) {
+                    openImageGallery();
+                }
+            });
+        }
+
+        private void openImageGallery() {
+            if (currentIssue == null) return;
+
+            Log.d(TAG, "Opening gallery for issue: " + currentIssue.getTitle());
+
+            Intent intent = new Intent(itemView.getContext(), ImageGalleryActivity.class);
+
+            ArrayList<String> allImages = new ArrayList<>();
+            ArrayList<String> allTitles = new ArrayList<>();
+
+            // Add the current image
+            if (currentIssue.getPhotoBase64() != null && !currentIssue.getPhotoBase64().isEmpty()) {
+                allImages.add(currentIssue.getPhotoBase64());
+                allTitles.add(currentIssue.getTitle());
+
+                Log.d(TAG, "Added image to gallery, Base64 length: " + currentIssue.getPhotoBase64().length());
+            } else {
+                Log.d(TAG, "No image data found for this issue");
+                Toast.makeText(itemView.getContext(),
+                        "No image available for this issue",
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // For future enhancement: You could add multiple images here
+            // if you implement multi-image support per issue
+
+            intent.putStringArrayListExtra("all_images", allImages);
+            intent.putStringArrayListExtra("all_titles", allTitles);
+            intent.putExtra("position", 0);
+
+            itemView.getContext().startActivity(intent);
         }
 
         void bind(Issue issue) {
-            currentIssue = issue; // Store the current issue
+            currentIssue = issue;
 
-            // Set basic text
+            // Set title
             binding.issueTitle.setText(issue.getTitle());
-            binding.issueDescription.setText(issue.getDescription());
-            binding.issueCategory.setText(issue.getCategory());
-            binding.issueSeverity.setText(issue.getSeverity());
-            binding.issueStatus.setText(issue.getStatus());
 
-            // Set upvotes count
-            if (issue.getUpvotes() > 0) {
-                binding.issueUpvotes.setText(String.valueOf(issue.getUpvotes()));
-                binding.issueUpvotes.setVisibility(View.VISIBLE);
-            } else {
-                binding.issueUpvotes.setText("0");
-                binding.issueUpvotes.setVisibility(View.VISIBLE);
-            }
+            // Load image from Base64 or show default
+            loadImageFromBase64(issue.getPhotoBase64());
 
-            // Format and set date
+            // Set date
             String formattedDate = formatDate(issue.getCreatedAt());
-            binding.issueDate.setText(formattedDate);
+            binding.issueDateAdded.setText(formattedDate);
 
-            // Set colors based on category, severity, and status
-            setCategoryColor(issue.getCategory());
-            setSeverityColor(issue.getSeverity());
-            setStatusColor(issue.getStatus());
+            // Set location
+            if (issue.getLatitude() != 0 && issue.getLongitude() != 0) {
+                String locationText = String.format(Locale.getDefault(),
+                        "%.2f, %.2f", issue.getLatitude(), issue.getLongitude());
+                binding.issueLocationText.setText(locationText);
+            } else {
+                binding.issueLocationText.setText("Location not available");
+            }
         }
 
-        private void setCategoryColor(String category) {
-            int colorRes;
-            switch (category) {
-                case "Pothole":
-                    colorRes = R.color.category_pothole;
-                    break;
-                case "Graffiti":
-                    colorRes = R.color.category_graffiti;
-                    break;
-                case "Litter":
-                    colorRes = R.color.category_litter;
-                    break;
-                case "Illegal parking":
-                    colorRes = R.color.category_parking;
-                    break;
-                case "Roadworks":
-                    colorRes = R.color.category_roadworks;
-                    break;
-                case "Street lighting":
-                    colorRes = R.color.category_lighting;
-                    break;
-                case "Illegal dumping":
-                    colorRes = R.color.category_dumping;
-                    break;
-                case "Abandoned vehicle":
-                    colorRes = R.color.category_vehicle;
-                    break;
-                case "Damaged tree":
-                case "Fallen tree":
-                case "Hanging branches":
-                    colorRes = R.color.category_tree;
-                    break;
-                case "Worn out street sign":
-                    colorRes = R.color.category_sign;
-                    break;
-                default:
-                    colorRes = R.color.category_other;
-                    break;
+        private void loadImageFromBase64(String base64String) {
+            if (base64String == null || base64String.isEmpty()) {
+                Log.d(TAG, "No image data for issue: " + (currentIssue != null ? currentIssue.getTitle() : "unknown"));
+                binding.issueImage.setImageResource(R.drawable.ic_default_image);
+                binding.issueImage.setBackgroundColor(
+                        itemView.getContext().getResources().getColor(R.color.background_gray));
+                binding.issueImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                return;
             }
-            binding.issueCategory.setBackgroundColor(
-                    itemView.getContext().getResources().getColor(colorRes)
-            );
-        }
 
-        private void setSeverityColor(String severity) {
-            int colorRes;
-            switch (severity) {
-                case "Minor":
-                    colorRes = R.color.severity_minor;
-                    break;
-                case "Moderate":
-                    colorRes = R.color.severity_moderate;
-                    break;
-                case "Major":
-                    colorRes = R.color.severity_major;
-                    break;
-                case "Critical":
-                    colorRes = R.color.severity_critical;
-                    break;
-                default:
-                    colorRes = R.color.severity_moderate;
-                    break;
-            }
-            binding.issueSeverity.setBackgroundColor(
-                    itemView.getContext().getResources().getColor(colorRes)
-            );
-        }
+            try {
+                Log.d(TAG, "Attempting to load image, Base64 length: " + base64String.length());
 
-        private void setStatusColor(String status) {
-            int colorRes;
-            switch (status) {
-                case "PENDING":
-                    colorRes = R.color.status_pending;
-                    break;
-                case "IN_PROGRESS":
-                    colorRes = R.color.status_in_progress;
-                    break;
-                case "RESOLVED":
-                    colorRes = R.color.status_resolved;
-                    break;
-                default:
-                    colorRes = R.color.status_pending;
-                    break;
+                String cleanBase64 = base64String;
+                if (cleanBase64.contains(",")) {
+                    cleanBase64 = cleanBase64.substring(cleanBase64.indexOf(",") + 1);
+                }
+
+                cleanBase64 = cleanBase64.replaceAll("\\s", "");
+                byte[] decodedBytes = Base64.decode(cleanBase64, Base64.DEFAULT);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+
+                if (bitmap != null) {
+                    binding.issueImage.setImageBitmap(bitmap);
+                    binding.issueImage.setBackground(null);
+                    binding.issueImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+                    // Make image clickable only when there's actual image
+                    binding.issueImage.setClickable(true);
+                    binding.issueImage.setAlpha(1.0f);
+
+                    Log.d(TAG, "Image loaded successfully for issue: " + currentIssue.getTitle());
+                } else {
+                    Log.e(TAG, "Failed to decode bitmap for issue: " + currentIssue.getTitle());
+                    binding.issueImage.setImageResource(R.drawable.ic_default_image);
+                    binding.issueImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                    binding.issueImage.setClickable(false);
+                }
+            } catch (IllegalArgumentException e) {
+                Log.e(TAG, "Base64 decoding error: " + e.getMessage());
+                binding.issueImage.setImageResource(R.drawable.ic_default_image);
+                binding.issueImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                binding.issueImage.setClickable(false);
+            } catch (Exception e) {
+                Log.e(TAG, "Error loading image from Base64", e);
+                binding.issueImage.setImageResource(R.drawable.ic_default_image);
+                binding.issueImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                binding.issueImage.setClickable(false);
             }
-            binding.issueStatus.setBackgroundColor(
-                    itemView.getContext().getResources().getColor(colorRes)
-            );
         }
 
         private String formatDate(String dateString) {
+            if (dateString == null || dateString.isEmpty()) {
+                return "Unknown date";
+            }
+
             try {
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
                 Date date = format.parse(dateString);
+
+                if (date == null) {
+                    SimpleDateFormat oldFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+                    date = oldFormat.parse(dateString);
+                }
+
                 if (date != null) {
                     long now = System.currentTimeMillis();
                     long time = date.getTime();
 
-                    // Show relative time (e.g., "2 hours ago")
                     if (Math.abs(now - time) < DateUtils.DAY_IN_MILLIS * 7) {
                         return DateUtils.getRelativeTimeSpanString(
                                 time,
@@ -223,14 +238,14 @@ public class IssuesAdapter extends RecyclerView.Adapter<IssuesAdapter.IssueViewH
                                 DateUtils.FORMAT_ABBREV_RELATIVE
                         ).toString();
                     } else {
-                        // For older dates, show actual date
                         SimpleDateFormat outputFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
                         return outputFormat.format(date);
                     }
                 }
             } catch (ParseException e) {
-                e.printStackTrace();
+                Log.e(TAG, "Error parsing date: " + dateString, e);
             }
+
             return dateString;
         }
 
@@ -244,22 +259,18 @@ public class IssuesAdapter extends RecyclerView.Adapter<IssuesAdapter.IssueViewH
                 if (id == R.id.menu_view_details) {
                     if (listener != null) {
                         listener.onIssueClick(issue);
-                    } else {
-                        showToast("Listener not set");
                     }
                     return true;
                 } else if (id == R.id.menu_upvote) {
                     if (listener != null) {
                         listener.onUpvoteClick(issue);
-                    } else {
-                        showToast("Please set listener first");
                     }
                     return true;
                 } else if (id == R.id.menu_share) {
                     shareIssue(issue);
                     return true;
-                } else if (id == R.id.menu_report) {
-                    reportIssue(issue);
+                } else if (id == R.id.menu_view_image) {
+                    openImageGallery();
                     return true;
                 }
                 return false;
@@ -268,35 +279,22 @@ public class IssuesAdapter extends RecyclerView.Adapter<IssuesAdapter.IssueViewH
             popupMenu.show();
         }
 
-        private void showToast(String message) {
-            Toast.makeText(itemView.getContext(), message, Toast.LENGTH_SHORT).show();
-        }
-
         private void shareIssue(Issue issue) {
             String shareText = String.format(
-                    "Check out this issue: %s\nType: %s\nSeverity: %s\nLocation: %s",
+                    "Check out this issue: %s\nReported on: %s\nLocation: %.2f, %.2f",
                     issue.getTitle(),
-                    issue.getCategory(),
-                    issue.getSeverity(),
-                    issue.getAddress()
+                    formatDate(issue.getCreatedAt()),
+                    issue.getLatitude(),
+                    issue.getLongitude()
             );
 
-            android.content.Intent shareIntent = new android.content.Intent();
-            shareIntent.setAction(android.content.Intent.ACTION_SEND);
-            shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareText);
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
             shareIntent.setType("text/plain");
 
             itemView.getContext().startActivity(
-                    android.content.Intent.createChooser(shareIntent, "Share Issue")
+                    Intent.createChooser(shareIntent, "Share Issue")
             );
-        }
-
-        private void reportIssue(Issue issue) {
-            Toast.makeText(
-                    itemView.getContext(),
-                    "Report issue functionality coming soon!",
-                    Toast.LENGTH_SHORT
-            ).show();
         }
     }
 }

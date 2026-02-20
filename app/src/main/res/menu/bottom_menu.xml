@@ -1,6 +1,29 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/map" android:icon="@drawable/map_icon" android:title="@string/map" app:showAsAction="ifRoom"/>
-    <item android:id="@+id/issues" android:icon="@drawable/warning_icon" android:title="@string/reported_issues" app:showAsAction="ifRoom"/>
-    <item android:id="@+id/aboutUs" android:icon="@drawable/about" android:title="@string/about_us" app:showAsAction="ifRoom"/>
-    <item android:id="@+id/contactUs" android:icon="@drawable/contact" android:title="@string/contact" app:showAsAction="ifRoom"/>
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/map"
+        android:icon="@drawable/map_icon"
+        android:title="@string/map" />
+
+    <item
+        android:id="@+id/issues"
+        android:icon="@drawable/warning_icon"
+        android:title="@string/reported_issues" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_person1"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings" />
+
+    <item
+        android:id="@+id/aboutUs"
+        android:icon="@drawable/about"
+        android:title="@string/about_us" />
+
 </menu>

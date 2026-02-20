@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">CivicWatch</string>
+
+    <!-- Navigation -->
+    <string name="map">Mapa</string>
+    <string name="reported_issues">Problemas Reportados</string>
+    <string name="about_us">Sobre Nosotros</string>
+    <string name="contact">Contacto</string>
+    <string name="settings">Configuración</string>
+
+    <!-- Report Issue -->
+    <string name="report_new_issue">Reportar nuevo problema</string>
+    <string name="issue_title">Título</string>
+    <string name="issue_description">Descripción</string>
+    <string name="issue_type">Tipo de problema</string>
+    <string name="issue_severity">Gravedad</string>
+    <string name="add_location">Añadir ubicación</string>
+    <string name="place_location">Haga clic para colocar la ubicación en el mapa</string>
+
+    <!-- About Us -->
+    <string name="about_us_text">CivicWatch es una aplicación que permite a los usuarios reportar todo tipo de problemas comunitarios, desde basura hasta grafitis y baches. La aplicación ayuda a mantener nuestros vecindarios limpios y seguros.</string>
+    <string name="contact_us">CONTÁCTENOS</string>
+    <string name="contact_info1">Para cualquier pregunta o soporte, contáctenos en:</string>
+    <string name="author_name">Abbey Musumba</string>
+    <string name="author_email">ssenkubugeabbey055@gmail.com</string>
+    <string name="city">Ciudad de Mbarara</string>
+
+    <!-- Settings - Theme -->
+    <string name="app_theme">Tema de la App</string>
+    <string name="system_default">Predeterminado del Sistema</string>
+    <string name="light_mode">Modo Claro</string>
+    <string name="dark_mode">Modo Oscuro</string>
+    <string name="preferences">Preferencias</string>
+
+    <!-- Settings - Theme Messages -->
+    <string name="light_mode_applied">Modo claro aplicado</string>
+    <string name="dark_mode_applied">Modo oscuro aplicado</string>
+    <string name="system_default_applied">Predeterminado del sistema aplicado</string>
+
+    <!-- Settings - Notifications -->
+    <string name="notifications">Notificaciones</string>
+    <string name="notifications_settings">Configuración de notificaciones</string>
+
+    <!-- Settings - Language -->
+    <string name="language">Idioma</string>
+    <string name="language_settings">Configuración de Idioma</string>
+    <string name="select_language">Seleccionar Idioma</string>
+    <string name="apply_language">Aplicar Idioma</string>
+    <string name="language_changed">Idioma cambiado</string>
+
+    <!-- Settings - About -->
+    <string name="about">Acerca de</string>
+    <string name="privacy_policy">Política de Privacidad</string>
+    <string name="terms_of_service">Términos de Servicio</string>
+    <string name="app_version">Versión 1.0.0</string>
+
+    <!-- Issue Types -->
+    <string-array name="types">
+        <item>Basura</item>
+        <item>Vertido ilegal</item>
+        <item>Grafiti</item>
+        <item>Bache</item>
+        <item>Obras viales</item>
+        <item>Señal de calle desgastada</item>
+        <item>Alumbrado público</item>
+        <item>Estacionamiento ilegal</item>
+        <item>Vehículo abandonado</item>
+        <item>Árbol dañado</item>
+        <item>Ramas colgantes</item>
+        <item>Árbol caído</item>
+        <item>Otro</item>
+    </string-array>
+
+    <!-- Severity Levels -->
+    <string-array name="severity">
+        <item>Leve</item>
+        <item>Moderado</item>
+        <item>Grave</item>
+        <item>Crítico</item>
+    </string-array>
+
+</resources>

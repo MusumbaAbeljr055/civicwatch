@@ -6,6 +6,7 @@
     <string name="reported_issues">Reported Issues</string>
     <string name="about_us">About Us</string>
     <string name="contact">Contact</string>
+    <string name="settings">Settings</string>
 
     <!-- Report Issue -->
     <string name="report_new_issue">Report new issue</string>
@@ -23,6 +24,35 @@
     <string name="author_name">Abbey Musumba</string>
     <string name="author_email">ssenkubugeabbey055@gmail.com</string>
     <string name="city">Mbarara City</string>
+
+    <!-- Settings - Theme -->
+    <string name="app_theme">App Theme</string>
+    <string name="system_default">System Default</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="preferences">Preferences</string>
+
+    <!-- Settings - Theme Messages -->
+    <string name="light_mode_applied">Light mode applied</string>
+    <string name="dark_mode_applied">Dark mode applied</string>
+    <string name="system_default_applied">System default applied</string>
+
+    <!-- Settings - Notifications -->
+    <string name="notifications">Notifications</string>
+    <string name="notifications_settings">Notifications settings</string>
+
+    <!-- Settings - Language -->
+    <string name="language">Language</string>
+    <string name="language_settings">Language Settings</string>
+    <string name="select_language">Select Language</string>
+    <string name="apply_language">Apply Language</string>
+    <string name="language_changed">Language changed</string>
+
+    <!-- Settings - About -->
+    <string name="about">About</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="app_version">Version 1.0.0</string>
 
     <!-- Issue Types -->
     <string-array name="types">
@@ -48,5 +78,7 @@
         <item>Major</item>
         <item>Critical</item>
     </string-array>
+    <!-- Add this line with your Web Client ID -->
+    <string name="default_web_client_id" translatable="false">708080286591-m32mt7nose1dl36u1auo20qr97l09aa1.apps.googleusercontent.com</string>
 
 </resources>

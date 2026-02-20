@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_light">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@android:color/white"
+        app:navigationIcon="@drawable/ic_close"
+        app:navigationIconTint="@android:color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Language"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp" />
+
+                    <RadioGroup
+                        android:id="@+id/radioGroupLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/radioEnglish"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="English"
+                            android:textColor="@color/text_primary"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/radioSpanish"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Español (Spanish)"
+                            android:textColor="@color/text_primary"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/radioFrench"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Français (French)"
+                            android:textColor="@color/text_primary"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/radioLuganda"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Luganda"
+                            android:textColor="@color/text_primary"
+                            android:padding="8dp" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:id="@+id/btnApply"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                android:text="Apply Language"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

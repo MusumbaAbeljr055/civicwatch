@@ -85,6 +85,9 @@
     <color name="hint_background">#F0F7FF</color>
     <color name="ripple_white">#33FFFFFF</color>
     <color name="item_pressed">#E3F2FD</color>
-
+    <!-- Add this to your existing colors.xml -->
+    <color name="divider_color">#1E000000</color> <!-- Light black with 12% opacity -->
+    <!-- Or use this for a lighter divider -->
+    <color name="divider_color_light">#1F000000</color> <!-- 12% opacity black -->
 
 </resources>

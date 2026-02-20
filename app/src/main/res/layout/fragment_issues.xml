@@ -3,7 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Changed from CoordinatorLayout to simpler layout -->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mihneacristian.civicwatch.presentation.viewmodel.IssuesViewModel" />
+    </data>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -124,9 +129,9 @@
 
             </LinearLayout>
 
-            <!-- Issues List -->
+            <!-- Issues List - FIXED ID -->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recipes_recycl_view"
+                android:id="@+id/recipesRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"

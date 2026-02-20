@@ -7,296 +7,510 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background_gray"
-        android:fillViewport="true">
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:gravity="center_horizontal">
 
-            <!-- Hero Section -->
+            <!-- Header with gradient background -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
                 android:layout_marginBottom="24dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                app:cardBackgroundColor="@color/mapboxBlue">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="32dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:padding="32dp">
 
-                    <!-- Logo with circular background -->
-                    <FrameLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_marginBottom="20dp">
+                    <!-- App Logo -->
+                    <ImageView
+                        android:id="@+id/logoImage"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_community"
+                        android:padding="20dp"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@android:color/white" />
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/circle_primary" />
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_civicwatch"/>
-                    </FrameLayout>
-
+                    <!-- App Name -->
                     <TextView
+                        android:id="@+id/appName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CIVICWATCH"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorPrimary"
+                        android:text="@string/app_name"
+                        android:textColor="@android:color/white"
                         android:textSize="28sp"
                         android:textStyle="bold"
-                        android:letterSpacing="0.03" />
+                        android:layout_marginTop="16dp" />
 
+                    <!-- App Slogan -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Community Guardians"
-                        android:textColor="@color/text_secondary"
+                        android:text="Making cities better together"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp"
-                        android:textStyle="italic" />
+                        android:alpha="0.9"
+                        android:layout_marginTop="4dp" />
+
                 </LinearLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- About Section -->
+            <!-- About Us Text with icon -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="24dp">
+                    android:padding="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:text="About Our Mission"
-                        android:textColor="@color/text_primary"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="CivicWatch empowers communities by providing a platform for citizens to report, track, and resolve local issues. We believe in transparent governance and community collaboration to create cleaner, safer neighborhoods."
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_info"
+                            android:tint="@color/mapboxBlue" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="About Us"
+                            android:textColor="@color/text_primary"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginStart="12dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/aboutUsText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_us_text"
                         android:textColor="@color/text_secondary"
-                        android:textSize="16sp"
-                        android:lineSpacingExtra="6dp" />
+                        android:textSize="15sp"
+                        android:lineSpacingExtra="6dp"
+                        android:padding="8dp" />
+
                 </LinearLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Features Section -->
+            <!-- App Stats Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="25+"
+                            android:textColor="@color/mapboxBlue"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Issues"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="40dp"
+                        android:background="@color/divider_color" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10+"
+                            android:textColor="@color/mapboxBlue"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Resolved"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="40dp"
+                        android:background="@color/divider_color" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="50+"
+                            android:textColor="@color/mapboxBlue"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Users"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Info Cards - Version, Author, etc -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="24dp">
+                    android:padding="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- Version with custom chip design -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_info"
+                            android:tint="@color/mapboxBlue" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:text="Version"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/versionText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:text="1.0.0"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:background="@drawable/chip_background" />
+
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider_color"
+                        android:layout_marginVertical="8dp" />
+
+                    <!-- Author -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
                         android:layout_marginBottom="16dp"
-                        android:text="Key Features"
-                        android:textColor="@color/text_primary"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <!-- Feature 1 -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="8dp">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginEnd="12dp"
-                            android:src="@drawable/ic_map"
-                            android:tint="@color/colorPrimary" />
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_person"
+                            android:tint="@color/mapboxBlue" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Interactive Map Reporting"
+                            android:layout_marginStart="16dp"
+                            android:text="Developed by"
                             android:textColor="@color/text_primary"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/authorNameValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/author_name"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
                     </LinearLayout>
 
-                    <!-- Feature 2 -->
+                    <!-- Email with copy button -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginEnd="12dp"
-                            android:src="@drawable/ic_track"
-                            android:tint="@color/colorPrimary" />
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_email"
+                            android:tint="@color/mapboxBlue" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Real time Issue Tracking"
+                            android:layout_marginStart="16dp"
+                            android:text="Email"
                             android:textColor="@color/text_primary"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/authorEmail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/author_email"
+                                android:textColor="@color/mapboxBlue"
+                                android:textSize="14sp"
+                                android:autoLink="email"
+                                android:paddingEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/btnCopyEmail"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_copy"
+                                android:tint="@color/text_secondary"
+                                android:background="?selectableItemBackgroundBorderless"
+                                android:padding="4dp" />
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
-                    <!-- Feature 3 -->
+                    <!-- Location -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginEnd="12dp"
-                            android:src="@drawable/ic_community"
-                            android:tint="@color/colorPrimary" />
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_location"
+                            android:tint="@color/mapboxBlue" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Community Upvoting System"
+                            android:layout_marginStart="16dp"
+                            android:text="Location"
                             android:textColor="@color/text_primary"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <!-- Feature 4 -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginEnd="12dp"
-                            android:src="@drawable/ic_notifications"
-                            android:tint="@color/colorPrimary" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:id="@+id/city"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Status Update Notifications"
-                            android:textColor="@color/text_primary"
-                            android:textSize="16sp" />
+                            android:text="@string/city"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Contact Section -->
+            <!-- Contact Us Card with social media -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:strokeColor="@color/mapboxBlue"
+                app:strokeWidth="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="24dp">
+                    android:padding="20dp">
 
                     <TextView
+                        android:id="@+id/contactUsTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:text="Contact &amp; Support"
-                        android:textColor="@color/text_primary"
+                        android:text="@string/contact_us"
+                        android:textColor="@color/mapboxBlue"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp" />
 
-                    <!-- Email -->
+                    <TextView
+                        android:id="@+id/contactInfo1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contact_info1"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="15sp"
+                        android:padding="12dp"
+                        android:background="@drawable/contact_background"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Social Media Icons -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="20dp">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginEnd="12dp"
-                            android:src="@drawable/ic_email"
-                            android:tint="@color/text_secondary" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="ssenkubugeabbey055@gmail.com"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <!-- Website -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                            android:id="@+id/btnTwitter"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_twitter"
+                            android:tint="@color/mapboxBlue"
+                            android:padding="8dp"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:layout_marginEnd="16dp" />
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginEnd="12dp"
-                            android:src="@drawable/ic_web"
-                            android:tint="@color/text_secondary" />
+                            android:id="@+id/btnFacebook"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_facebook"
+                            android:tint="@color/mapboxBlue"
+                            android:padding="8dp"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:layout_marginEnd="16dp" />
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="musumba.space"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="16sp" />
+                        <ImageView
+                            android:id="@+id/btnGithub"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_github"
+                            android:tint="@color/mapboxBlue"
+                            android:padding="8dp"
+                            android:background="?selectableItemBackgroundBorderless" />
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Version Info -->
-            <TextView
+            <!-- Rate Us Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRateUs"
                 android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Rate Us on Play Store"
+                android:textSize="16sp"
+                app:icon="@drawable/ic_star"
+                app:iconGravity="textStart"
+                app:cornerRadius="28dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:backgroundTint="@color/mapboxBlue" />
+
+            <!-- Footer -->
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:gravity="center"
-                android:text="Version 1.0.0 • Made with ❤️ for communities"
+                android:text="© 2026 CivicWatch. All rights reserved."
                 android:textColor="@color/text_secondary"
-                android:textSize="14sp"
-                android:alpha="0.7" />
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp" />
 
         </LinearLayout>
 

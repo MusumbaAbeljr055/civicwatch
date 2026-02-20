@@ -28,8 +28,18 @@ public class FirebaseDatabaseService {
         String issueId = databaseReference.child("issues").push().getKey();
         if (issueId != null) {
             issue.setIssueId(issueId);
+
+            // Log the data being saved
+            Log.d(TAG, "=== SAVING ISSUE ===");
+            Log.d(TAG, "Issue ID: " + issueId);
+            Log.d(TAG, "Title: " + issue.getTitle());
+            Log.d(TAG, "Reporter ID: " + issue.getReporterId());
+            Log.d(TAG, "Reporter Name: " + issue.getReporterName());
+            Log.d(TAG, "===================");
+
             databaseReference.child("issues").child(issueId).setValue(issue)
                     .addOnSuccessListener(aVoid -> {
+                        Log.d(TAG, "Issue saved successfully with ID: " + issueId);
                         updateStats();
                         callback.onSuccess(issueId);
                     })
@@ -37,6 +47,8 @@ public class FirebaseDatabaseService {
                         Log.e(TAG, "Failed to save issue: " + e.getMessage());
                         callback.onFailure(e);
                     });
+        } else {
+            callback.onFailure(new Exception("Failed to generate issue ID"));
         }
     }
 
@@ -52,6 +64,7 @@ public class FirebaseDatabaseService {
 
     // Save user data
     public void saveUser(User user) {
+        Log.d(TAG, "Saving user: " + user.getUserId());
         databaseReference.child("users").child(user.getUserId()).setValue(user);
     }
 
@@ -104,9 +117,35 @@ public class FirebaseDatabaseService {
 
                     @Override
                     public void onComplete(DatabaseError databaseError, boolean committed, DataSnapshot dataSnapshot) {
-                        // Handle completion
+                        if (committed) {
+                            Log.d(TAG, "Stats updated successfully");
+                        }
                     }
                 });
+    }
+
+    // Debug method to check all issues
+    public void debugAllIssues() {
+        databaseReference.child("issues").addListenerForSingleValueEvent(new com.google.firebase.database.ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.d(TAG, "=== ALL ISSUES IN DATABASE ===");
+                Log.d(TAG, "Total count: " + snapshot.getChildrenCount());
+
+                for (DataSnapshot issueSnapshot : snapshot.getChildren()) {
+                    Log.d(TAG, "Issue ID: " + issueSnapshot.getKey());
+                    for (DataSnapshot field : issueSnapshot.getChildren()) {
+                        Log.d(TAG, "  " + field.getKey() + ": " + field.getValue());
+                    }
+                    Log.d(TAG, "  ---");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e(TAG, "Debug error: " + error.getMessage());
+            }
+        });
     }
 
     // Interface for callbacks

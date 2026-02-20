@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">CivicWatch</string>
+
+    <!-- Navigation -->
+    <string name="map">Mappa</string>
+    <string name="reported_issues">Ebizibu Ebiwedduddwa</string>
+    <string name="about_us">Ku Taffe</string>
+    <string name="contact">Okutukirira</string>
+    <string name="settings">Enteekateeka</string>
+
+    <!-- Report Issue -->
+    <string name="report_new_issue">Wandisa ekizibu ekiggya</string>
+    <string name="issue_title">Omutwe</string>
+    <string name="issue_description">Okunnyonnyola</string>
+    <string name="issue_type">Ekika ky\'ekizibu</string>
+    <string name="issue_severity">Obuzito</string>
+    <string name="add_location">Yongera ekifo</string>
+    <string name="place_location">Nyiga okuteeka ekifo ku mappa</string>
+
+    <!-- About Us -->
+    <string name="about_us_text">CivicWatch kiba app ekyamba abantu okutegeeza ebizibu eby\'enjawulo mu kitundu, okuva mu bisago okutuuka ku biwandiiko ebikosezza amabbaliro n\'ebinnya mu mabbaliro. App eno eyamba okukuuma ebifo byaffe birongoofu era nga tebirimu kabi.</string>
+    <string name="contact_us">TUWANDIIRE</string>
+    <string name="contact_info1">Bw\'oba olina ekibuuzo oba gwetaaga obuyambi, tukirira ku:</string>
+    <string name="author_name">Abbey Musumba</string>
+    <string name="author_email">ssenkubugeabbey055@gmail.com</string>
+    <string name="city">Mbarara City</string>
+
+    <!-- Settings - Theme -->
+    <string name="app_theme">Enkola y\'App</string>
+    <string name="system_default">Ensengeka ya Sisiti</string>
+    <string name="light_mode">Enkola y\'Ekitangaala</string>
+    <string name="dark_mode">Enkola y\'Ekizikiza</string>
+    <string name="preferences">Eby\'Okusalawo</string>
+
+    <!-- Settings - Theme Messages -->
+    <string name="light_mode_applied">Enkola y\'ekitangaala ekolebwa</string>
+    <string name="dark_mode_applied">Enkola y\'ekizikiza ekolebwa</string>
+    <string name="system_default_applied">Ensengeka ya sisiti emale okukozesebwa</string>
+
+    <!-- Settings - Notifications -->
+    <string name="notifications">Okutegezebwa</string>
+    <string name="notifications_settings">Enteekateeka z\'okutegezebwa</string>
+
+    <!-- Settings - Language -->
+    <string name="language">Olulimi</string>
+    <string name="language_settings">Enteekateeka y\'Olulimi</string>
+    <string name="select_language">Londa Olulimi</string>
+    <string name="apply_language">Kozesa</string>
+    <string name="language_changed">Olulimi lukyusiddwa</string>
+
+    <!-- Settings - About -->
+    <string name="about">Ku</string>
+    <string name="privacy_policy">Ebiragiro bya Kyaama</string>
+    <string name="terms_of_service">Ebiragiro by\'Okukozesa</string>
+    <string name="app_version">Endaga 1.0.0</string>
+
+    <!-- Issue Types -->
+    <string-array name="types">
+        <item>Ebisaago</item>
+        <item>Okusula ebintu mu kifo ekitali kituufu</item>
+        <item>Ebiwandiiko ebikosezza amabbaliro</item>
+        <item>Ekinnya mu kkubo</item>
+        <item>Okukolera ku kkubo</item>
+        <item>Akabonero k\'okukubo akakosebw</item>
+        <item>Amatala ag\'okukubo</item>
+        <item>Okupaka mu kifo ekitali kituufu</item>
+        <item>Emotoka eyabuliriddwa</item>
+        <item>Omuti ogwonoonese</item>
+        <item>Amatabi agawanvu</item>
+        <item>Omuti ogugudde</item>
+        <item>Ebirala</item>
+    </string-array>
+
+    <!-- Severity Levels -->
+    <string-array name="severity">
+        <item>Obuzito obutono</item>
+        <item>Obuzito obwomumakkati</item>
+        <item>Obuzito obwamaanyi</item>
+        <item>Kyamagezi</item>
+    </string-array>
+
+</resources>

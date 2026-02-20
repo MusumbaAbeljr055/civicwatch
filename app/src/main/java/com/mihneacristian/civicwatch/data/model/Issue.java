@@ -1,6 +1,8 @@
 package com.mihneacristian.civicwatch.data.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Issue {
     private String issueId;
@@ -41,8 +43,13 @@ public class Issue {
         this.reporterName = reporterName;
         this.reporterEmail = reporterEmail;
         this.status = "PENDING";
-        this.createdAt = new Date().toString();
-        this.updatedAt = new Date().toString();
+
+        // Use a consistent date format that's easy to parse
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        String currentTime = sdf.format(new Date());
+        this.createdAt = currentTime;
+        this.updatedAt = currentTime;
+
         this.upvotes = 0;
         this.assignedTo = "";
     }
